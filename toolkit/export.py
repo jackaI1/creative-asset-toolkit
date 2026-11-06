@@ -47,13 +47,16 @@ def run(args: list[str], *, env=None, timeout=180) -> str:
 
 def executable(name: str) -> str:
     override = os.environ.get(name.upper() + "_BIN")
-    found = shutil.which(override or name)
+    # The GUI executable may initialize GTK even with --no-interface. Prefer
+    # the separately built console executable on machines without a display.
+    candidates = [override] if override else {
+        "gimp": ["gimp-console", "gimp-console-3.0",
+                 "/Applications/GIMP.app/Contents/MacOS/gimp-console", "gimp"],
+        "inkscape": ["inkscape", "/Applications/Inkscape.app/Contents/MacOS/inkscape"],
+    }[name]
+    found = next((path for candidate in candidates if (path := shutil.which(candidate))), None)
     if found:
         return found
-    mac = {"inkscape": "/Applications/Inkscape.app/Contents/MacOS/inkscape",
-           "gimp": "/Applications/GIMP.app/Contents/MacOS/gimp"}[name]
-    if Path(mac).is_file():
-        return mac
     raise ExportError(f"Install {name}; see README. Override with {name.upper()}_BIN.")
 
 

@@ -14,7 +14,7 @@ The example master is itself a readable 1600 × 900 layout. The output uses the 
 2. Refuse an existing destination. Record the master hash and the real tool versions.
 3. Query master bounds, write each temporary SVG, query it again and check all six groups against the safe rectangle. The comparison permits 0.1 pixel of printed-number rounding.
 4. Inkscape renders each page at the requested pixel size.
-5. One isolated GIMP 3 batch loads the PNGs and uses its PNG and JPEG export procedures. Each image is deleted after processing. GIMP writes a completion receipt so a silently failed batch cannot count as success.
+5. One isolated GIMP 3 batch loads the PNGs and uses its PNG and JPEG export procedures. The exporter prefers `gimp-console` so Linux batches do not need a display. Each image is deleted after processing. GIMP writes a completion receipt so a silently failed batch cannot count as success.
 6. Pillow independently decodes the resulting files and checks dimensions and file format. It computes byte counts and hashes. Pillow does not generate the deliverables.
 7. Write `manifest.json`. The overall status is `passed` only after every output succeeds. On failure, planned entries are marked `failed`; partial images may remain for diagnosis and must not be delivered.
 

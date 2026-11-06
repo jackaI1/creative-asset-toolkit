@@ -31,7 +31,7 @@ sudo apt-get update
 sudo apt-get install inkscape gimp gir1.2-gimp-3.0 python3-gi python3-gi-cairo python3-venv fonts-dejavu-core
 ```
 
-GIMP **3.x** is required; GIMP 2 uses a different scripting interface. Inkscape 1.4 or newer is recommended. On macOS the exporter also finds the apps in `/Applications`. For other locations, set `INKSCAPE_BIN` and `GIMP_BIN` to their executable paths.
+GIMP **3.x** is required; GIMP 2 uses a different scripting interface. Inkscape 1.4 or newer is recommended. The exporter prefers `gimp-console`, GIMP's executable for running without a display. On macOS it also finds the apps in `/Applications`. For other locations, set `INKSCAPE_BIN` and `GIMP_BIN` to their executable paths; use the GIMP console executable on a computer without a desktop.
 
 ## Change the promotion
 
