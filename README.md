@@ -12,19 +12,20 @@ To try it, install the tools below, then run `python -m toolkit.export` inside t
 
 I use Inkscape for the editable drawing and rendering, and GIMP 3 for the final image exports. These are open-source alternatives to Illustrator and Photoshop. Python runs the steps without opening either editor's interface.
 
-On macOS, with [Homebrew](https://brew.sh/) installed:
+I use Python 3.11 or newer. On macOS, with [Homebrew](https://brew.sh/) installed:
 
 ```sh
+brew install python
 brew install --cask inkscape gimp
 git clone https://github.com/jackaI1/creative-asset-toolkit.git
 cd creative-asset-toolkit
-python3 -m venv .venv
+"$(brew --prefix)/bin/python3" -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
 python -m toolkit.export
 ```
 
-On Debian 13, install the graphics tools with the following command, then use the same clone and Python commands above:
+On Debian 13, install the graphics tools below. Follow the same clone and environment steps above, using `python3 -m venv .venv` in place of the Homebrew Python command:
 
 ```sh
 sudo apt-get update
