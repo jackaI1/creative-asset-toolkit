@@ -2,7 +2,7 @@ I merged this into my existing [small-business-backoffice project](https://githu
 
 The move keeps the original layout, including `tests/test_export.py`, `toolkit/__init__.py`, `toolkit/export.py`, `toolkit/gimp_finish.py`. I replaced the README with the report below and left out Git history, installed dependencies, caches and generated build output from the hub copy.
 
-The 1 test source files moved with the code. No project-specific GitHub Actions workflow was retained; the report records the omitted checks, and the test sources can be run locally from the linked folder.
+The 1 files of test code and supporting test helpers moved with the code. No project-specific GitHub Actions workflow was retained; the report records the omitted checks, and the test sources can be run locally from the linked folder.
 
 Omitted workflows: `creative-asset-toolkit-check.yml`: The relocated workflow did not complete successfully within the migration batch. Local test sources remain available.
 
@@ -11,6 +11,8 @@ Omitted workflows: `creative-asset-toolkit-check.yml`: The relocated workflow di
 # creative-asset-toolkit
 
 I built a promotion artwork exporter to learn how the underlying idea works. This is a learning project.
+
+The included basketball event, teams and venue are fictional.
 
 ## Run it
 
